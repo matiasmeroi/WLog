@@ -1,0 +1,94 @@
+
+
+
+.horizontal-nav {
+    background: #202020;
+    color:white;
+    padding: 2px 2px;
+}
+
+.horizontal-nav ul {
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: space-evenly;
+    border-bottom: 3px solid #555;
+}
+
+.horizontal-nav ul li {
+    list-style: none;
+
+}
+
+.horizontal-nav ul li a {
+    color:white;
+    text-decoration: none;
+}
+
+.horizontal-nav ul li a:hover {
+    color: aquamarine;
+}
+
+.horizontal-nav ul li a#hover {
+    color:aqua
+
+}
+
+.vertical-nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 10%;
+    background-color: #202020;
+    border: 1px solid #555;
+    position:fixed;
+    height:100%;
+    overflow: auto;
+  }
+  
+.vertical-nav  li a {
+    display: block;
+    color: #fff;
+    padding: 8px 16px;
+    text-decoration: none;
+  }
+  
+  /* Change the link color on hover */
+.vertical-nav  li a:hover {
+    background-color: #555;
+    color: white;
+  }
+  
+ .vertical-nav li {
+    text-align: center;
+    border-bottom: 1px solid #555;
+  }
+  
+ .vertical-nav li:last-child {
+    border-bottom: none;
+  }
+
+body {
+    background-color: #202020;
+    color:whitesmoke
+}
+
+.content-container {
+    margin-left: 12%;
+
+}
+
+.error-text {
+    color: red;
+}
+
+.success-text {
+    color: green;
+}
+
+.page-selector ul {
+    list-style-type: none;
+}
+
+.page-selector ul li {
+    text-decoration: none;
+}

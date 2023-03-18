@@ -1,0 +1,24 @@
+
+{% extends 'layouts/base.html' %}
+
+{%block title %} Log in {% endblock %}
+
+{% block content %}
+
+<p class="error-text">{{ error }}</p>
+
+<form method="POST">
+
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+    <button type="submit">Log In</button>
+
+</form>
+
+<p>
+    New to Wlog? <a href="{% url 'sign_up' %}"> Create Account </a>
+</p>
+
+{% endblock %}

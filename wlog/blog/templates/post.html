@@ -1,0 +1,22 @@
+
+{% extends 'layouts/base.html' %}
+
+
+{%block title %} {{ post.title }} {% endblock %}
+
+
+{% block content %} 
+
+    <div>
+        {% if post.image %}
+            <p><img src="/media/{{ post.image }}" ></p>
+        {% endif%}
+        <p><h1>{{ post.title }}</h1></p>
+        <p>Created by <a href="{% url 'profile' post.created_by.user.id %}">{{ post.created_by.user.username }}</a> - {{ post.date }}</p>
+        <hr>
+        <p>{{post.body}}</p>
+        <hr>
+    </div>
+
+
+{% endblock %}

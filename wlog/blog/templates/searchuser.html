@@ -1,0 +1,27 @@
+
+{% extends 'layouts/base.html' %}
+
+
+
+{% block title %} Search - {{ searched }} {% endblock %}
+
+
+{% block content %}
+
+<form method="post">
+
+    {% csrf_token %}
+
+    <p>
+        <input type="text" placeholder="Search..." required name="id_term" id="term">
+        <button type="submit">Go!</button>
+    </p>    
+
+</form>
+
+{% for p in profiles %}
+    <a href="{% url 'profile' p.user.id %}"><p> {{p.user.username }} - {% if p.name%} Name:{{ p.name}} - {% endif%} {% if p.last_name%} Last Name:{{ p.last_name}} - {% endif%}</p></a>
+{% endfor %}
+
+
+{% endblock %}

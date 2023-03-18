@@ -1,0 +1,26 @@
+
+{% extends 'layouts/base.html' %}
+
+
+{%block title %} {{ my_user.username }} Posts {% endblock %}
+
+
+{% block content %} 
+
+    {% for post in posts %}
+
+    {% if forloop.first %} 
+    <hr>
+    {% endif %}
+        <div>
+            {% if post.image %}
+            <img src="/media/{{ post.image }}" width="200px">
+            {% endif%}
+            <a href="{% url 'post' post.id %}">{{ post.title }}</a>
+        </div>
+
+    <hr>
+
+    {% endfor %}
+
+{% endblock %}

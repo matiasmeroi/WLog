@@ -1,0 +1,17 @@
+
+{% extends 'layouts/base.html' %}
+
+
+{% block title %} User: {{ profile.user.username}} {% endblock %}
+
+
+{% block content %}
+
+<p><h1>{{ profile.user.username }}</h1></p>
+<p><img src="/media/{{profile.picture}}" width="500px"></p>
+<p>Name: {{ profile.name}}</p>
+<p>Last Name: {{ profile.last_name }}</p>
+<p>Location: {{ profile.location }}</p>
+
+
+{% endblock %}

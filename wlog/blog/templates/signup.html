@@ -1,0 +1,21 @@
+
+{% extends 'layouts/base.html' %}
+
+{%block title %} Sign up {% endblock %}
+
+
+
+{% block content %}
+
+<p class="error-text">{{ error }}</p>
+
+
+<form method="POST">
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+    <button type="submit">Join!</button>
+</form>
+
+{% endblock %}

@@ -1,0 +1,19 @@
+
+
+{% macro link_2_post(post, is_first=False, is_last=False) -%}
+   
+    {% if is_first %} 
+    <hr>
+    {% endif %}
+        <div>
+            {% if post.image %}
+            <img src="/media/{{ post.image }}" width="200px">
+            {% endif%}
+            <a href="{% url 'post' post.id %}">{{ post.title }}</a>
+        </div>
+
+    {% if is_last %} 
+    <hr>
+    {% endif %}
+
+{%- endmacro %}
