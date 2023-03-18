@@ -11,6 +11,7 @@
         {% if post.image %}
             <p><img src="/media/{{ post.image }}" ></p>
         {% endif%}
+        <p> {{likes}} Likes - <form action="{% url 'like_post' post.id %}" method="post">{% csrf_token %}<button type="submit"> Like </button></form> </p>
         <p><h1>{{ post.title }}</h1></p>
         <p>Created by <a href="{% url 'profile' post.created_by.user.id %}">{{ post.created_by.user.username }}</a> - {{ post.date }}</p>
         <hr>

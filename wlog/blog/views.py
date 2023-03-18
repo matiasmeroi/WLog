@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from .forms import ProfileForm, SignInForm, PostCreationForm
-from .models import Profile, Post
+from .models import Profile, Post, Likes
 
 # Create your views here.
 @login_required(login_url="sign_in")
@@ -150,9 +150,28 @@ def list_posts(request, user_id = None):
 @login_required(login_url="sign_in")
 def post(request, post_id):
     post = get_object_or_404(Post, id = post_id)
+
+    likes = Likes.objects.filter(post=post_id).count()
+
     return render(request, "post.html", {
-        "post":post
+        "post":post,
+        "likes":likes
     })
+
+
+
+@login_required(login_url="sign_in")
+def like_post(request, post_id):
+    post = Post.objects.get(id=post_id)
+    liked = Likes.objects.filter(user= request.user, post = post).count() != 0
+
+    if liked:
+        obj = Likes.objects.get(user=request.user.id, post= post.id)
+        obj.delete()
+    else:
+        Likes.objects.create(user=request.user, post=post)
+    
+    return redirect("post", post_id)
 
 
 @login_required(login_url="sign_in")

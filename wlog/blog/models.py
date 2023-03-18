@@ -9,6 +9,8 @@ class Profile(models.Model):
     picture = models.ImageField(upload_to="profile_pictures/", default="blank-profile-picture.png")
     location = models.CharField(max_length=100, blank=True)
 
+    def __str__(self):
+        return self.user.username
 
 
 class Post(models.Model):
@@ -20,5 +22,13 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+    
+
+class Likes(models.Model):
+    post = models.ForeignKey(to=Post, on_delete=models.CASCADE, null=False, unique=False)
+    user = models.ForeignKey(to=User, on_delete=models.CASCADE, null=False, unique=False)
+
+    def __str__(self):
+        return self.post.title + " - " + self.user.username
 
 
